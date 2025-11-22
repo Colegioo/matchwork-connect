@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, Users, LogOut } from "lucide-react";
+import { Briefcase, Users, LogOut, Sparkles } from "lucide-react";
 
 const Index = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -89,12 +89,25 @@ const Index = () => {
                 </Card>
               </div>
 
-              <div className="bg-muted/50 rounded-lg p-6 text-center">
+              <div className="bg-gradient-to-r from-primary/10 to-success/10 rounded-lg p-8 text-center border-2 border-primary/20">
+                <Sparkles className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-xl font-bold mb-2">Descubra Vagas Perfeitas para Você!</h3>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Navegue por vagas recomendadas com base no seu perfil e preferências
+                </p>
+                <Button 
+                  size="lg" 
+                  onClick={() => navigate("/discover")}
+                  className="gap-2"
+                >
+                  <Sparkles className="w-5 h-5" />
+                  Começar a Explorar
+                </Button>
+              </div>
+
+              <div className="bg-muted/50 rounded-lg p-4 text-center">
                 <p className="text-sm text-muted-foreground">
                   Você está logado como: <span className="font-semibold text-foreground">{user.email}</span>
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Em breve você poderá navegar pelas vagas e candidatos!
                 </p>
               </div>
             </CardContent>
